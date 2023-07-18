@@ -1,20 +1,42 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
+import AppLoading  from "expo-app-loading";
+import {
+  useFonts,
+  Raleway_400Regular
+} from "@expo-google-fonts/raleway";
 
-export default function App() {
+const App = () => {
+  const [fontsLoaded] = useFonts({
+    Raleway_400Regular,
+  });
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View style={{ flex: 1 }}>
+      {!fontsLoaded ? 
+        <AppLoading /> : (
+        <>
+          <View style={[styles.container, { backgroundColor: '#D77A61' }]}>
+            <Text style={[styles.text, { color: '#EFF1F3' }]}>Text Goes Here</Text>
+          </View>
+          <View style={[styles.container, { backgroundColor: '#EFF1F3' }]}>
+            <Text style={[styles.text, { color: '#D77A61' }]}>Text Goes Here</Text>
+          </View>
+        </>
+      )}
     </View>
   );
 }
 
+export default App;
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center', 
+    alignItems: 'center'
   },
-});
+  text: {
+    fontFamily: 'Raleway_400Regular', 
+    fontSize: 48
+  }
+})
