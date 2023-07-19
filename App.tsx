@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Platform } from 'react-native';
 import {
   Raleway_400Regular
 } from "@expo-google-fonts/raleway";
@@ -10,7 +10,8 @@ import { convertPtsToHrs } from './utilities';
 
 const App = () => {
   const [appIsReady, setAppIsReady] = useState<boolean>(false);
-  const [pts, setPts] = useState<number>(0);
+  const [pts, setPts] = useState<number | null>(0);
+  const [activeValue, setActiveValue] = useState<number | null>(0);
 
   useEffect(() => {
     const prepare = async () => {
@@ -48,18 +49,80 @@ const App = () => {
 
   return (
     <View style={{ flex: 1 }}>
-      <View style={[styles.container, { backgroundColor: '#81b29a' }]} onLayout={onLayoutRootView} >
+      <View 
+        style={[
+          styles.container, 
+          { 
+            flex: 2,
+            backgroundColor: '#81b29a',     
+            ...Platform.select({
+              ios: {
+                shadowColor: '#000',
+                shadowOffset: {width: 1, height: 1},
+                shadowOpacity: 0.4,
+              },
+              android: {
+                elevation: 4,
+              },
+            }), 
+          },
+        ]} 
+        onLayout={onLayoutRootView} 
+      >
+        <Text style={[styles.text, { color: '#f4f1de', marginBottom: 10 }]}>Sprint Points</Text>
         <View style={styles.buttonContainer}>
-          <PointsButton title='1' setPoints={setPts} value={1} />
-          <PointsButton title='2' setPoints={setPts} value={2} />
-          <PointsButton title='3' setPoints={setPts} value={3} />
-          <PointsButton title='5' setPoints={setPts} value={5} />
-          <PointsButton title='8' setPoints={setPts} value={8} />
-          <PointsButton title='13' setPoints={setPts} value={13} />
-          <PointsButton title='> 13' setPoints={setPts} value={NaN} />
+          <PointsButton 
+            title='1' 
+            setPoints={setPts} 
+            value={1} 
+            activeValue={activeValue} 
+            setActiveValue={setActiveValue} 
+          />
+          <PointsButton 
+            title='2' 
+            setPoints={setPts} 
+            value={2} 
+            activeValue={activeValue} 
+            setActiveValue={setActiveValue} 
+          />
+          <PointsButton 
+            title='3' 
+            setPoints={setPts} 
+            value={3} 
+            activeValue={activeValue} 
+            setActiveValue={setActiveValue} 
+          />
+          <PointsButton 
+            title='5' 
+            setPoints={setPts} 
+            value={5} 
+            activeValue={activeValue} 
+            setActiveValue={setActiveValue} 
+          />
+          <PointsButton 
+            title='8' 
+            setPoints={setPts} 
+            value={8} 
+            activeValue={activeValue} 
+            setActiveValue={setActiveValue} 
+          />
+          <PointsButton 
+            title='13' 
+            setPoints={setPts} 
+            value={13} 
+            activeValue={activeValue} 
+            setActiveValue={setActiveValue} 
+          />
+          <PointsButton 
+            title='> 13' 
+            setPoints={setPts} 
+            value={null} 
+            activeValue={activeValue} 
+            setActiveValue={setActiveValue} 
+          />
         </View>
       </View>
-      <View style={[styles.container, { backgroundColor: '#f4f1de' }]}>
+      <View style={[styles.container, { backgroundColor: '#f4f1de', flex: 1 }]}>
         <Text style={[styles.text, { color: '#81b29a' }]}>{convertPtsToHrs(pts)}</Text>
       </View>
     </View>
@@ -70,7 +133,6 @@ export default App;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     justifyContent: 'center',
     padding: '3%'
   },
@@ -82,7 +144,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontFamily: 'Raleway_400Regular', 
-    fontSize: 48,
+    fontSize: 40,
     textAlign: 'center'
   }
 });
