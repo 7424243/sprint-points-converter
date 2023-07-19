@@ -5,3 +5,12 @@ export interface IPointsButtonProps {
   activeValue: number | null;
   setActiveValue: (value: number | null) => void;
 };
+
+export interface IButtonContainerProps {
+  onLayoutRootView: () => Promise<void>;
+  setPts: (value: number | null) => void;
+};
+
+export interface IHoursContainerProps {
+  pts: number | null;
+};
