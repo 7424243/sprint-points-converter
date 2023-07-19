@@ -48,17 +48,19 @@ const App = () => {
 
   return (
     <View style={{ flex: 1 }}>
-      <View style={[styles.container, { backgroundColor: '#D77A61', flexDirection: 'row' }]} onLayout={onLayoutRootView} >
-        <PointsButton title='1' setPoints={setPts} value={1} />
-        <PointsButton title='2' setPoints={setPts} value={2} />
-        <PointsButton title='3' setPoints={setPts} value={3} />
-        <PointsButton title='5' setPoints={setPts} value={5} />
-        <PointsButton title='8' setPoints={setPts} value={8} />
-        <PointsButton title='13' setPoints={setPts} value={13} />
-        <PointsButton title='> 13' setPoints={setPts} value={NaN} />
+      <View style={[styles.container, { backgroundColor: '#81b29a' }]} onLayout={onLayoutRootView} >
+        <View style={styles.buttonContainer}>
+          <PointsButton title='1' setPoints={setPts} value={1} />
+          <PointsButton title='2' setPoints={setPts} value={2} />
+          <PointsButton title='3' setPoints={setPts} value={3} />
+          <PointsButton title='5' setPoints={setPts} value={5} />
+          <PointsButton title='8' setPoints={setPts} value={8} />
+          <PointsButton title='13' setPoints={setPts} value={13} />
+          <PointsButton title='> 13' setPoints={setPts} value={NaN} />
+        </View>
       </View>
-      <View style={[styles.container, { backgroundColor: '#EFF1F3' }]}>
-        <Text style={[styles.text, { color: '#D77A61' }]}>{convertPtsToHrs(pts)}</Text>
+      <View style={[styles.container, { backgroundColor: '#f4f1de' }]}>
+        <Text style={[styles.text, { color: '#81b29a' }]}>{convertPtsToHrs(pts)}</Text>
       </View>
     </View>
   );
@@ -69,11 +71,18 @@ export default App;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent: 'center',
+    padding: '3%'
+  },
+  buttonContainer: {
     justifyContent: 'center', 
-    alignItems: 'center'
+    alignItems: 'center', 
+    flexDirection: 'row', 
+    flexWrap: 'wrap',
   },
   text: {
     fontFamily: 'Raleway_400Regular', 
-    fontSize: 48
+    fontSize: 48,
+    textAlign: 'center'
   }
 });
