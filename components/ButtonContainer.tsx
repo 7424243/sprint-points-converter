@@ -1,5 +1,5 @@
 import { ReactElement, useState } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Platform } from 'react-native';
 import { PointsButton } from './PointsButton';
 import { globalStyles } from '../styles';
 import { IButtonContainerProps } from './types';
@@ -77,6 +77,17 @@ const styles = StyleSheet.create({
       padding: '3%',
       flex: 2,
       backgroundColor: '#81b29a', 
+      zIndex: 99,
+      ...Platform.select({
+        ios: {
+          shadowColor: '#000',
+          shadowOffset: {width: 1, height: 1},
+          shadowOpacity: 0.4,
+        },
+        android: {
+          elevation:5,
+        },
+      }),
     },
     buttonContainer: {
       justifyContent: 'center', 

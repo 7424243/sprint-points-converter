@@ -1,5 +1,7 @@
 export const convertPtsToHrs = (points: number | null): string => {
   switch (points) {
+    case 0:
+      return 'Hours'
     case 1:
       return '0 - 6 Hours';
     case 2:
