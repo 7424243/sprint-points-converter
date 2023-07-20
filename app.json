@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "Points Converter",
+    "name": "Points/Hours",
     "slug": "sprint-points-converter",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -9,14 +9,15 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#f4f1de"
     },
     "assetBundlePatterns": [
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "y"
+      "supportsTablet": false,
+      "bundleIdentifier": "y",
+      "icon": "./assets/change-icon.png"
     },
     "android": {
       "adaptiveIcon": {

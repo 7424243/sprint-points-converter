@@ -26,6 +26,14 @@ npm run ios
 ```
 npm run web
 ```
+- Create a build for [Android](https://docs.expo.dev/build-reference/apk/) and install on device.
+```
+npm run build:android
+```
+- Create a build for [iOS](https://docs.expo.dev/build-reference/simulators/) and install on simulator.
+```
+npm run build:ios
+```
 
 ## Built With
 [![My Skills](https://skillicons.dev/icons?i=react,js,ts,css)](https://skillicons.dev)

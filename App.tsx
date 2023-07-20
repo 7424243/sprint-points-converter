@@ -1,4 +1,4 @@
-import { StatusBar, View } from 'react-native';
+import {  View } from 'react-native';
 import {
   Raleway_400Regular
 } from "@expo-google-fonts/raleway";
@@ -6,6 +6,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import { useCallback, useEffect, useState } from 'react';
 import * as Font from 'expo-font';
 import { ButtonContainer, HoursContainer } from './components';
+import { StatusBar } from 'expo-status-bar';
 
 const App = () => {
   const [appIsReady, setAppIsReady] = useState<boolean>(false);
@@ -47,9 +48,9 @@ const App = () => {
 
   return (
     <View style={{ flex: 1 }}>
-      <StatusBar />
       <ButtonContainer onLayoutRootView={onLayoutRootView} setPts={setPts}/>
       <HoursContainer pts={pts} />
+      <StatusBar />
     </View>
   );
 };
