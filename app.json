@@ -1,10 +1,10 @@
 {
   "expo": {
-    "name": "sprint-points-converter",
+    "name": "Points Converter",
     "slug": "sprint-points-converter",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/change-loop.png",
+    "icon": "./assets/change-icon.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
@@ -15,16 +15,23 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "y"
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/change-loop.png",
-        "backgroundColor": "#ffffff"
-      }
+        "foregroundImage": "./assets/change-icon.png",
+        "backgroundColor": "#00ffffff"
+      },
+      "package": "com.ssheets.sprintpointsconverter"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/change-favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "47bc64eb-7fbc-4d43-9927-f14402bb4601"
+      }
     }
   }
 }

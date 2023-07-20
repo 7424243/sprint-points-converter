@@ -1,4 +1,4 @@
-import { View } from 'react-native';
+import { StatusBar, View } from 'react-native';
 import {
   Raleway_400Regular
 } from "@expo-google-fonts/raleway";
@@ -47,6 +47,7 @@ const App = () => {
 
   return (
     <View style={{ flex: 1 }}>
+      <StatusBar />
       <ButtonContainer onLayoutRootView={onLayoutRootView} setPts={setPts}/>
       <HoursContainer pts={pts} />
     </View>
