@@ -22,6 +22,12 @@
     "production": {}
   },
   "submit": {
-    "production": {}
+    "production": {
+      "android": {
+        "serviceAccountKeyPath": "./pc-api.json",
+        "track": "alpha",
+        "releaseStatus": "inProgress"
+      }
+    }
   }
 }
